@@ -18,7 +18,10 @@ class WeatherFetchedSuccessState extends WeatherState {
   const WeatherFetchedSuccessState({required this.datas});
 }
 
-class WeatherFetchErrorState extends WeatherState {}
+class WeatherFetchErrorState extends WeatherState {
+  final String message;
+  const WeatherFetchErrorState({required this.message});
+}
 
 class WeatherFetchLoadingState extends WeatherState {}
 

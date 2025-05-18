@@ -27,7 +27,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       );
       emit(WeatherFetchedSuccessState(datas: datas));
     } catch (e) {
-      emit(WeatherFetchErrorState());
+      emit(WeatherFetchErrorState(message: "$e"));
     }
   }
 
@@ -42,7 +42,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       );
       emit(WeatherFetchedSuccessState(datas: weatherData));
     } catch (e) {
-      emit(WeatherFetchErrorState());
+      emit(WeatherFetchErrorState(message: "$e"));
     }
   }
 

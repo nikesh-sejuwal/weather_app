@@ -58,18 +58,23 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, state) {
         switch (state.runtimeType) {
           case const (WeatherFetchErrorState):
+            final message = state as WeatherFetchErrorState;
             return Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.white,
-              child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "ERROR WHILE FETCHING DATA",
-                      style: TextStyle(fontSize: 25),
+                    Center(
+                      child: Text(
+                        message.message,
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
+                    SizedBox(height: 40),
                     ElevatedButton(
                       onPressed: () {
                         context.read<WeatherBloc>().add(
